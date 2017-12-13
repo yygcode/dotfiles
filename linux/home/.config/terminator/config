@@ -1,0 +1,61 @@
+[global_config]
+  window_state = fullscreen
+  suppress_multiple_term_dialog = True
+  borderless = True
+  focus = system
+  tab_position = hidden
+  title_transmit_bg_color = "#000000"
+[keybindings]
+  switch_to_tab_10 = <Alt>0
+  switch_to_tab_6 = <Alt>6
+  switch_to_tab_7 = <Alt>7
+  switch_to_tab_4 = <Alt>4
+  switch_to_tab_5 = <Alt>5
+  switch_to_tab_2 = <Alt>2
+  switch_to_tab_3 = <Alt>3
+  switch_to_tab_1 = <Alt>1
+  cycle_next = <Ctrl>Tab
+  hide_window = <Ctrl><Alt>v
+  switch_to_tab_8 = <Alt>8
+  switch_to_tab_9 = <Alt>9
+[profiles]
+  [[default]]
+    allow_bold = False
+    scrollbar_position = disabled
+    use_system_font = False
+    mouse_autohide = False
+    custom_command = cd $HOME; /bin/bash
+    scrollback_lines = 10000
+    background_image = None
+    use_custom_command = True
+    font = Monospace 18
+    palette="#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
+    foreground_color="#F8F8F2"
+    background_color="#272822"
+  [[tmux]]
+    show_titlebar = False
+    scrollbar_position = disabled
+    use_system_font = False
+    mouse_autohide = False
+    scrollback_lines = 10000
+    background_image = None
+    use_custom_command = True
+    font = Monospace 18
+    force_no_bell = True
+    xterm = xterm-256color
+    custom_command = "tmux"
+    palette="#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
+    foreground_color="#F8F8F2"
+    background_color="#272822"
+    cursor_color="#eee8d5"
+    copy_on_selection = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      profile = default
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
