@@ -1,0 +1,5 @@
+#! /bin/bash
+
+echo "proxy connect $@" >> ~/.socks.log
+connect -H "127.0.0.1:49529" "$@"
+#ssh -o ProxyCommand="~/.socks.proxy %h %p" "$@"

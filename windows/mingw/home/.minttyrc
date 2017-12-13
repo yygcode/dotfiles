@@ -1,0 +1,11 @@
+BoldAsFont=-1
+Columns=130
+Rows=30
+Font=Consolas
+Locale=en_US
+Charset=UTF-8
+FontHeight=12
+Scrollbar=none
+Term=xterm-256color
+BellType=0
+Window=full
