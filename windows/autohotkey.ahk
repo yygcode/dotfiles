@@ -6,6 +6,9 @@ EnvSet, HTTP_PROXY, 127.0.0.1:49529
 EnvSet, HTTPS_PROXY, 127.0.0.1:49529
 EnvSet, FTP_PROXY, 127.0.0.1:49529
 EnvSet, NO_PROXY, localhost,127.*,10.*,*.jd.*,*.baidu.*,*.icbc.*,*.bing.*,*.taobao.*,*.csdn.*
+EnvSet, http_proxy, %HTTP_PROXY%
+EnvSet, https_proxy, %HTTPS_PROXY%
+EnvSet, no_proxy, %NO_PROXY%
 
 ^#e::Run C:\emacs-26.0.90-x86_64\bin\runemacs.exe -fs
 ^#m::Run %MSYS2_ROOT%\msys2_shell.cmd -mingw64
