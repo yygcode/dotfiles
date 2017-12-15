@@ -118,7 +118,11 @@ function install_directory_dot_files()
 		}
 	    }
 	    echo_dbg $CMD $OPT "$SD/$x" "$DD/"
-	    $CMD $OPT "$SD/$x" "$DD/" || echo_warn "Install dot file fail: '$x'"
+	    # link failed add soft flag then try again
+	    $CMD $OPT "$SD/$x" "$DD/" ||
+		$CMD $OPT -s "$SD/$x" "$DD/" ||
+		echo_warn "Install dot file fail, try soft link again: '$x'"
+
 	    # recur if $DD/$x is a directory and not ymbolic
 	    [ -d "$DD/$x" -a ! -L "$DD/$x" ] && {
 		echo_dbg "Not a real link(maybe mingw), recur sub directoy ..."

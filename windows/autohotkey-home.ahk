@@ -1,5 +1,6 @@
 ;^#e::Run C:\cygwin64\bin\run.exe emacs-w32.exe -fs
 
+EnvSet, HOME, H:\work
 EnvSet, MSYS2_ROOT, E:\yanyg-data\msys64
 EnvSet, PATH, %MSYS2_ROOT%\usr\bin;%MSYS2_ROOT%\mingw64\bin;C:\ProgramData\Oracle\Java\javapath;%PATH%
 EnvSet, HTTP_PROXY, 127.0.0.1:49529

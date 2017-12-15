@@ -55,5 +55,3 @@ which tmux >/dev/null 2>&1 && [ -e "$HOME/.tmux.conf" ] && [ -z "$TMUX" ] &&
 # if [ -d "${HOME}/info" ]; then
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
-
-echo debug
