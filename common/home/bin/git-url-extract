@@ -1,0 +1,47 @@
+#! /bin/bash
+#
+# Extracts all git fetch url from url
+#
+# Usage: script-name [DIR [q]]
+#
+
+DIR=$1
+[ -n "$DIR" ] || DIR="$HOME/git"
+ES=0
+
+# echo_exit msg
+echo_exit()
+{
+    echo "Error: $@ ($(caller 1))"
+    exit 1
+}
+
+echo_warn()
+{
+    echo "Warn: $@ ($(caller 1))"
+    return 2
+}
+
+function git_url_show_recursive()
+{
+    local gurl
+
+    [ -d "$DIR" ] || echo_exit "could not find directory '$DIR'"
+
+    # Use here string
+    while read d; do
+        [ -d "$d" ] || continue
+        [ -d "$d/.git" ] || continue
+        gurl=$((cd $d; git ls-remote --get-url) 2>/dev/null) || {
+            echo_warn "Directory $d is not a git repo, ignore it"
+            ES=2
+            continue
+        }
+        [ "$1" != "q" ] && echo -en "${d##*/} -> "
+        echo "$gurl"
+    done <<< $(ls -d "$DIR"/*)
+}
+
+git_url_show_recursive "$2"
+
+exit $ES
