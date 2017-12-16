@@ -1,0 +1,18 @@
+# shell alias
+
+# git
+alias g='git'
+alias ga='git add'
+alias gd='git diff'
+alias gl='git log -1 HEAD'
+alias gs='git status'
+alias gci='git commit'
+alias gco='git checkout'
+alias gst='git status'
+alias gurl='git ls-remote --get-url'
+
+# ls
+alias l='ls --show-control-chars --color=auto'
+alias la='ls -aF --show-control-chars --color=auto'
+alias ll='ls -alF --show-control-chars --color=auto'
+alias ls='ls --show-control-chars --color=auto'

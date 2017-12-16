@@ -3,3 +3,12 @@
 	email = yygcode@gmail.com
 [core]
 	autocrlf = false
+	gitProxy = ~/.socks.proxy for kernel.org
+[alias]
+	c = checkout
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	url = ls-remote --get-url
