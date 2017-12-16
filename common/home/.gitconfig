@@ -1,6 +1,7 @@
 [user]
 	name = yanyg
 	email = yygcode@gmail.com
+	signingkey = 5119691E
 [core]
 	autocrlf = false
 	gitProxy = ~/.socks.proxy for kernel.org
@@ -12,3 +13,5 @@
 	st = status
 	last = log -1 HEAD
 	url = ls-remote --get-url
+[commit]
+	gpgSign = true
