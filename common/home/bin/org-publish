@@ -1,0 +1,16 @@
+#! /bin/bash
+
+echo_exit()
+{
+    echo "Error: $@" >&2
+    exit 1
+}
+
+EL=~/.emacs.d/publish.el
+
+[ -e "$EL" ] || echo_exit "could not find $EL"
+emacs -batch -l "$EL"
+
+for x in css js img; do
+    rsync -rv ~/org/h/$x ~/hp
+done

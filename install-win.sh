@@ -134,11 +134,30 @@ function install_directory_dot_files()
     ) || exit
 }
 
+function install_autohotkey()
+{
+    (
+	[ "$OS" = "Windows_NT" ] || {
+	    echo_exit "OS is not Windows_NT"
+	}
+
+	cd "$REPO_DIR/windows" ||
+	    echo_exit "could not find directory '$REPO_DIR/windows'"
+
+	[ -d "$APPDATA" ] || echo_exit "could not find ENV APPDATA"
+
+	# Windows cannot hard link cross partition
+	ln -sf $PWD/autohotkey.ahk \
+	   "$APPDATA/Microsoft/Windows/Start Menu/Programs/Startup/"
+    ) || exit
+}
+
 function install_windows_mingw64()
 {
     # we use soft link for directories and hard link for files
     install_directory_dot_files "$REPO_DIR/windows/mingw/home" "" "."
     install_directory_dot_files "$REPO_DIR/common/home"
+    install_autohotkey
 }
 
 function install_mingw64()

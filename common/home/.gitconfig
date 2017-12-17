@@ -1,7 +1,7 @@
 [user]
 	name = yanyg
 	email = yygcode@gmail.com
-	signingkey = 5119691E
+	signingkey = B516A704
 [core]
 	autocrlf = false
 	gitProxy = ~/.socks.proxy for kernel.org
