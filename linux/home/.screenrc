@@ -1,0 +1,29 @@
+escape ^||
+startup_message off
+
+scrollback 10240
+
+shell -$SHELL
+
+split
+
+resize +10
+screen
+title "yanyg, good luck !"
+focus
+screen
+
+title "love you"
+focus
+
+vbell off
+
+bindkey ^f	focus
+#bindkey ^J	focus down
+#bindkey ^K	focus up
+# ctrl-a ctrl-tab
+# bind j	focus down
+#bindkey "^\011"	focus
+
+# shift tab for change focus
+# bindkey "^[[1;\011" focus

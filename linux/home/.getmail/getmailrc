@@ -1,0 +1,10 @@
+[retriever]
+type = SimplePOP3SSLRetriever
+server = pop.gmail.com
+username = yygcode@gmail.com
+port = 995
+password = <please input correct password>
+
+[destination]
+type = Maildir
+path = ~/Mail/

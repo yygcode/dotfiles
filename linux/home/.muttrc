@@ -1,0 +1,27 @@
+set editor=vim
+
+set sendmail="/usr/bin/msmtp -C /home/yanyg/.msmtprc"
+
+set folder="~/Mail"
+set mbox="~/Mail/inbox"
+set mbox_type=maildir
+set spoolfile="~/Mail/"
+set postponed="~/Mail/postponed"
+set record="~/Mail/sent"
+
+mailboxes "=Gmail"
+
+set check_new = yes
+set timeout = 600
+
+set index_format="%4C %Z %{%b %d} %-15.15L (%4l) %s"
+mailboxes Mailbox sent-mail
+set header=no
+set quit=ask-yes
+auto_view text/html application/msword
+set move=no
+set ascii_chars=yes
+set include
+set indent_str="> "
+my_hdr From: yygcode@gmail.com
+
