@@ -12,6 +12,14 @@ ICMD=
 ISOURCEDIR="$(readlink -f $(dirname $0))"
 ISYMBOLIC="1"
 
+# See https://en.wikipedia.org/wiki/ANSI_escape_code
+# and https://zh.wikipedia.org/zh-hans/ANSI%E8%BD%AC%E4%B9%89%E5%BA%8F%E5%88%97
+# and https://misc.flogisoft.com/bash/tip_colors_and_formatting
+COLOR_DEFAULT="\e[0m"
+COLOR_ERROR="\e[31;49m\e[1m"
+COLOR_WARN="\e[31;49m\e[1m"
+COLOR_INFO="\e[34;49m\e[1m"
+
 usage()
 {
     echo "Usage: $INAME [options] <TYPE>
@@ -28,20 +36,24 @@ TYPE:
 "
 }
 
-echo_warn()
-{
-    echo "Warn: $(caller 1) $@" >&2
-}
-
 echo_error()
 {
-    echo "Error: $(caller 1) $@" >&2
+    echo -e "[${COLOR_ERROR}ERROR${COLOR_DEFAULT}] $(caller 1) $@" >&2
 }
 
+echo_warn()
+{
+    echo -e "[${COLOR_WARN}WARN${COLOR_DEFAULT}] $(caller 1) $@" >&2
+}
+
+echo_info()
+{
+    echo -e "[${COLOR_INFO}INFO${COLOR_DEFAULT}] $(caller 1) $@" >&2
+}
 
 echo_exit()
 {
-    echo "Error: $(caller 1) $@" >&2
+    echo -e "[${COLOR_ERROR}ERROR${COLOR_DEFAULT}] $(caller 1) $@" >&2
     exit 1
 }
 
@@ -84,7 +96,9 @@ install_file()
 
     try_remove_file "$2"
 
-    $CMD "$sf" "$2" || echo_warn "Install $CMD '$sf' to '$2' failed."
+    $CMD "$sf" "$2" >/dev/null &&
+        echo_info "Install success: $CMD '$sf' to '$2'" ||
+        echo_error "Install failed: $CMD '$sf' to '$2'"
 }
 
 install_common()
