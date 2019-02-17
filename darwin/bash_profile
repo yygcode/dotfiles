@@ -1,0 +1,6 @@
+# Darwin bash need filename ~/.bash_profile.
+
+export CLICOLOR=1
+export LSCOLORS=Exfxcxdxbxegedabagacad
+
+[ -f "$HOME/.profile" ] && source "$HOME/.profile"
