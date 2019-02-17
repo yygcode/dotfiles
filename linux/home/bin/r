@@ -1,0 +1,7 @@
+#! /bin/bash
+
+(
+echo "[$(date)] Start Rdesktop"
+rdesktop 100.6.2.250 -u "HOME\\yanyg" -g "90%" -p "909201yan!" "$@"
+echo "[$(date)] Exit Rdesktop"
+) >/tmp/rdesktop.log 2>&1 &

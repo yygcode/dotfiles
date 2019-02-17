@@ -1,0 +1,82 @@
+[global_config]
+  borderless = True
+  focus = system
+  hide_tabbar = True
+  scroll_tabbar = False
+  suppress_multiple_term_dialog = True
+  tab_position = hidden
+  window_state = fullscreen
+[keybindings]
+  broadcast_all = ""
+  broadcast_group = ""
+  broadcast_off = ""
+  close_term = ""
+  close_window = ""
+  copy = ""
+  cycle_next = ""
+  cycle_prev = ""
+  edit_tab_title = ""
+  edit_terminal_title = ""
+  edit_window_title = ""
+  fullscreen = "<F9>"
+  go_down = ""
+  go_left = <Primary><Shift>p
+  go_prev = ""
+  go_right = ""
+  go_up = ""
+  group_all = ""
+  hide_window = ""
+  move_tab_left = ""
+  move_tab_right = ""
+  new_tab = <Super>T
+  new_terminator = ""
+  new_window = ""
+  next_tab = <Ctrl><Super>N
+  paste = ""
+  prev_tab = <Ctrl><Super>P
+  switch_to_tab_1 = <Ctrl><Alt>1
+  switch_to_tab_2 = <Ctrl><Alt>2
+  switch_to_tab_3 = <Ctrl><Alt>3
+  switch_to_tab_4 = <Ctrl><Alt>4
+  switch_to_tab_5 = <Ctrl><Alt>5
+  switch_to_tab_6 = <Ctrl><Alt>6
+  switch_to_tab_7 = <Ctrl><Alt>7
+  switch_to_tab_8 = <Ctrl><Alt>8
+  switch_to_tab_9 = <Ctrl><Alt>9
+  reset = ""
+  reset_clear = ""
+  resize_down = ""
+  resize_right = ""
+  resize_up = ""
+  rotate_ccw = ""
+  scaled_zoom = ""
+  search = ""
+  split_horiz = ""
+  split_vert = ""
+  toggle_scrollbar = ""
+  toggle_zoom = ""
+  ungroup_all = ""
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_color = "#272822"
+    copy_on_selection = True
+    cursor_color = "#F8F8F2"
+    font = Source Code Variable 12
+    force_no_bell = True
+    foreground_color = "#f8f8f2"
+    mouse_autohide = False
+    palette = "#272822:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f8f8f2:#75715e:#f92672:#a6e22e:#f4bf75:#66d9ef:#ae81ff:#a1efe4:#f9f8f5"
+    scrollback_lines = 10000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

@@ -1,0 +1,68 @@
+# ~/.bash_customize: Bash Customize for (non-)interactive, (non-)login envs
+#
+# Author: yanyg<yygcode@gmail.com>
+#
+
+function init_alias()
+{
+    # alias dictionary: <alias_name>[:space:]<alias_value>
+    # alias_name could not include [:space:]
+    local alias_array=(
+	# common
+	'h history'
+	'hh h | sed "s/^[0-9 ]\+  //"'
+	'ls ls --color=auto'
+	'l ls -a -F'
+	'll ls -l'
+	'grep grep --color'
+	'fgrep fgrep --color=auto'
+	'egrep egrep --color=auto'
+	'.. cd ..'
+	'.1 cd ..'
+	'.2 cd ../..'
+	'.3 cd ../../..'
+	'.4 cd ../../../..'
+	'bye exit'
+	'quit exit'
+	'q exit'
+
+	# git
+	"g git"
+	"ga git add"
+	"gd git diff"
+	"gl git log -1 HEAD"
+	"gs git status"
+	"gst git status"
+	"gci git commit"
+	"gco git checkout"
+	"gurl git ls-remote --get-url"
+    )
+
+    local item name value
+
+    for item in "${alias_array[@]}"; do
+	name=${item%% *}
+	value=${item#* }
+	alias "$name"="$value"
+    done
+}
+
+init_proxy()
+{
+    local x proxy="" LF="$HOME/.lantern/settings.yaml"
+
+    [ -e "$LF" ] proxy=$(grep "addr:" $LF | sed 's/addr: //')
+    [ -n "$proxy" ] && proxy="http://$proxy"
+    [ -n "$proxy" ] || proxy="http://127.0.0.1:49529"
+
+    for x in HTTP_PROXY HTTPS_PROXY http_proxy https_proxy; do
+	export $x=$proxy
+    done
+}
+init_proxy
+
+# import alias for interactive mode
+[ -z "${-##*i*}" ] && {
+    # init_colors
+    init_alias
+}
