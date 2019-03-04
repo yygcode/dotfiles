@@ -104,6 +104,9 @@ function __y_func_emacs()
     alias ec="$f -t"
     alias et="$f -t"
     alias eg="(exec $f -c >/dev/null 2>&1 &)"
+
+    export ALTERNATE_EDITOR=vim
+    export EDITOR=e
 }
 __y_func_emacs
 unset -f __y_func_emacs
