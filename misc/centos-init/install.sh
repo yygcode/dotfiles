@@ -5,8 +5,13 @@ set +h
 
 echo_exit()
 {
-    echo "ERROR: $@" >&2
+    echo "[$(caller 0)] ERROR: $@" >&2
     exit 1
+}
+
+echo_warn()
+{
+    echo "[$(caller 0)] WARN: $@" >&2
 }
 
 yes |
@@ -15,7 +20,7 @@ sudo yum install \
     libevent-devel ncurses-devel \
     texinfo gnutls-devel \
     ||
-    echo_exit "Install packages fail"
+    echo_warn "Install packages fail"
 
 GDIR=~/git
 
@@ -66,8 +71,10 @@ sudo make install || echo_exit "emacs make install failed."
 echo "Success install emacs"
 ) || echo_exit "install emacs failed."
 
-[ -e "~/.emacs.d" ] ||
-{
-cd ~
-git clone git@github.com:yygcode/.emacs.d
+[ -d "$HOME/.emacs.d" ] || {
+    (
+        cd ~
+        git clone git@github.com:yygcode/.emacs.d ||
+            echo_exit "clone emacs.d failed"
+    ) || exit 1
 }
