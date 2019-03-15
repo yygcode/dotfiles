@@ -7,6 +7,9 @@
 
 # check OS
 OS="$(uname -s)"
+WD=$(dirname "$0")
+[[ -z "$WD" ]] && WD="."
+
 function is_darwin()
 {
     [[ "$OS" = "Darwin" ]] && return 0
@@ -54,22 +57,22 @@ Platform:
 echo_error()
 {
     # mac does not support echo -e, use printf
-    printf "[${COLOR_ERROR}ERROR${COLOR_DEFAULT}] $(caller 1) $@\n" >&2
+    printf "[${COLOR_ERROR}ERROR${COLOR_DEFAULT}] $(caller 0) $@\n" >&2
 }
 
 echo_warn()
 {
-    printf "[${COLOR_WARN}WARN${COLOR_DEFAULT}] $(caller 1) $@\n" >&2
+    printf "[${COLOR_WARN}WARN${COLOR_DEFAULT}] $(caller 0) $@\n" >&2
 }
 
 echo_info()
 {
-    printf "[${COLOR_INFO}INFO${COLOR_DEFAULT}] $(caller 1) $@\n" >&2
+    printf "[${COLOR_INFO}INFO${COLOR_DEFAULT}] $(caller 0) $@\n" >&2
 }
 
 echo_exit()
 {
-    printf "[${COLOR_ERROR}ERROR${COLOR_DEFAULT}] $(caller 1) $@\n" >&2
+    printf "[${COLOR_ERROR}ERROR${COLOR_DEFAULT}] $(caller 0) $@\n" >&2
     exit 1
 }
 
@@ -174,6 +177,13 @@ install_common()
     install_exec "common" "${cl[@]}"
 }
 
+install_misc()
+{
+    tic -x -o ~/.terminfo misc/terminfo-24bit.src ||
+        echo_exit "Install terminfo-24bit failed."
+    echo_info "install term-24bits success."
+}
+
 install_linux()
 {
     # terminator
@@ -207,9 +217,12 @@ do_install()
     [ -n "$CMD" ] || echo_exit "Could not decision command."
 
     install_common
+    install_misc
     is_linux && install_linux
     is_darwin && install_darwin
 }
 
+# ensure to work directory
+cd "$WD" || echo_exit "cd to work directory $WD failed"
 do_install
 exit 0
