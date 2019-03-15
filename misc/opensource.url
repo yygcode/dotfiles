@@ -1,0 +1,4 @@
+git clone https://github.com/nginx/nginx.git
+wget http://mirrors.ustc.edu.cn/gnu/binutils/binutils-2.32.tar.xz
+wget http://mirrors.ustc.edu.cn/gnu/libc/glibc-2.29.tar.xz
+wget http://tamacom.com/global/global-6.6.3.tar.gz
