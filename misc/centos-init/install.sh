@@ -45,7 +45,7 @@ make || echo_exit "tmux make failed."
 sudo make install || echo_exit "tmux make install failed."
 
 echo "Success install tmux"
-) || echo_exit "install tmux failed."
+) || echo_warn "install tmux failed."
 
 # emacs
 which emacs 2>/dev/null ||
@@ -69,12 +69,13 @@ make -j || echo_exit "emacs make failed."
 sudo make install || echo_exit "emacs make install failed."
 
 echo "Success install emacs"
-) || echo_exit "install emacs failed."
+) || echo_warn "install emacs failed."
 
-[ -d "$HOME/.emacs.d" ] || {
-    (
-        cd ~
-        git clone git@github.com:yygcode/.emacs.d ||
-            echo_exit "clone emacs.d failed"
-    ) || exit 1
+[ -d "$HOME/.emacs.d" ] &&
+    echo_warn "$HOME/.emacs.d exist, ignore" || {
+        (
+            cd ~
+            git clone git@github.com:yygcode/.emacs.d ||
+                echo_exit "clone emacs.d failed"
+        ) || echo_warn "install emacs.d failed"
 }
