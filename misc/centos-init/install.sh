@@ -19,6 +19,9 @@ sudo yum install \
     man-pages git gcc automake autoconf \
     libevent-devel ncurses-devel \
     texinfo gnutls-devel \
+    bash-completion bash-completion-extras fuse fuse-libs fuse-devel fuseiso \
+    g++ gcc gcc-c++ git kernel-devel kernel-devel libgcc libtool libunwind-devel \
+    man-pages mosh netstat net-tools systemtap systemtap-devel tmux \
     ||
     echo_warn "Install packages fail"
 
