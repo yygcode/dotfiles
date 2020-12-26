@@ -18,5 +18,5 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    PATH="$HOME/bin:/usr/local/texlive/2020/bin/x86_64-linux:$PATH"
 fi

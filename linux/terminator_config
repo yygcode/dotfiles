@@ -71,7 +71,7 @@
     background_color = "#272822"
     copy_on_selection = True
     cursor_color = "#F8F8F2"
-    font = Source Code Variable 12
+    font = Source Code Pro 12
     force_no_bell = True
     foreground_color = "#f8f8f2"
     mouse_autohide = False
