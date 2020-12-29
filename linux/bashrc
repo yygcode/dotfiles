@@ -141,3 +141,5 @@ unset -f __y_func_tmux
 
 # setxkbmap -option "ctrl:swapcaps"
 export __Y_BASHRC=1
+export WINEARCH=win32
+export WINEPREFIX=$HOME/.wine32
