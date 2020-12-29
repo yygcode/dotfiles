@@ -102,7 +102,7 @@ function __y_func_emacs()
     [ -z "$x" ] && return 0
     [ -e "$f" ] || {
         mkdir -p "$d" 2>/dev/null
-        ln -sv $x $d/emacsc >/dev/null
+        ln -sv $x "$d/emacsc" >/dev/null
     }
 
     alias e="$f -t"
