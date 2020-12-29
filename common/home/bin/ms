@@ -1,0 +1,8 @@
+#! /bin/bash
+(
+    kill -9 $(ps auxf | grep "C:.*exe" | grep -v grep | sed 's/^yanyg \+//; s/ .*//')
+    [ -n "$1" ] && exit 1
+    LC_ALL=zh_CN.UTF-8 Exec=env WINEARCH=win32 \
+          WINEPREFIX="/home/yanyg/.wine32" \
+          wine explorer /desktop=mywine,1600x900
+) >/tmp/mywine.log 2>&1 &
