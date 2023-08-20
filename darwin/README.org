@@ -1,0 +1,16 @@
+#+TITLE: Mac Config How to
+
+* iterm2
+- Download from: https://iterm2.com/downloads.html
+- cp item2_yyg.json to Library/Application\ Support/iTerm2/DynamicProfiles
+
+yanyg@192 ~ % ls Library/Application\ Support/iTerm2/DynamicProfiles
+iterm2_yyg.json
+
+* Caps-ctrl
+- Mac -> System Preferences -> Keyboard -> Modifier Keys -> Swap Caps/Ctrl;
+
+* Mielink
+- Download mielink from: https://www.mielink.wiki/article-categories/macos/
+- Install and set System Preferences -> Security & Privacy ->
+  Unlock and allow Mielink;
